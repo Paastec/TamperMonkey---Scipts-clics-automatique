@@ -48,22 +48,16 @@
             var block5Selectors = ['#formFooter > a.btn.btn-warning.pull-right'];
             performActions(block5Selectors);
 
-            // Ajout d'un délai de 2 secondes avant le bloc 6
-            setTimeout(function() {
-                // Bloc 6: Clic sur le bouton "Enregistrer"
-                var block6Selectors = ['#formFooter > a.btn.btn-save'];
-                performActions(block6Selectors);
+            // Bloc 6: Clic sur le bouton "Enregistrer"
+            var block6Selectors = ['#formFooter > a.btn.btn-save'];
+            performActions(block6Selectors);
 
-                // Ajout d'un délai de 2 secondes avant le bloc 7
-                setTimeout(function() {
-                    // Bloc 7: Clic sur le bouton "Retour"
-                    var block7Selectors = ['#formFooter > a.btn.btn-secondary > i'];
-                    performActions(block7Selectors);
+            // Bloc 7: Clic sur le bouton "Retour"
+            var block7Selectors = ['#formFooter > a.btn.btn-secondary > i'];
+            performActions(block7Selectors);
 
-                    // Désactivez le script après l'exécution
-                    script2Enabled = false;
-                }, 2000);
-            }, 2000);
+            // Désactivez le script après l'exécution
+            script2Enabled = false;
         }
     }
 
@@ -83,61 +77,4 @@
     window.addEventListener('popstate', function() {
         automateActions();
     });
-})();
-
-    // Fonction principale pour automatiser les actions
-    function automateActions() {
-        if (scriptEnabled) {
-            // Bloc 1: Clic sur le bouton
-            var block1Button = '#palettisation > div.table-responsive.auto-data-label > table > tbody > tr > th.center > span > a';
-            var block1Selectors = [block1Button];
-
-            // Si le bloc 1 n'a pas encore été exécuté, effectuez les actions
-            if (!block1Executed) {
-                performActions(block1Selectors);
-                block1Executed = true;
-            }
-
-            // Bloc 2: Sélection dans la liste déroulante
-            var block2Selectors = ['#filter_type_typeUniteExpedition'];
-            var block2OptionIndex = 3; // Index de l'option à sélectionner dans la liste déroulante
-            performActions(block2Selectors, block2OptionIndex);
-
-            // Bloc 3: Clic sur le bouton "Accepter"
-            var block3Selectors = ['#modalPalettisation > div > div > div.modal-footer > button.btn.btn-save'];
-            performActions(block3Selectors);
-
-            // Bloc 4: Clic sur l'affection
-            var block4Selectors = ['#palettisation > div.table-responsive.auto-data-label > table > tbody > tr:nth-child(2) > td:nth-child(1) > a'];
-            performActions(block4Selectors);
-
-            // Bloc 5: Clic sur l'affection automatique
-            var block5Selectors = ['#formFooter > a.btn.btn-warning.pull-right > i'];
-            performActions(block5Selectors);
-
-            // Bloc 6: Clic sur le bouton "Enregistrer"
-            var block6Selectors = ['#formFooter > a.btn.btn-save > i'];
-            performActions(block6Selectors);
-        }
-    }
-
-    // Fonction pour activer ou désactiver le script avec la touche "W"
-    function toggleScript() {
-        scriptEnabled = !scriptEnabled;
-        console.log("Script " + (scriptEnabled ? "enabled" : "disabled"));
-        automateActions();
-    }
-
-    // Écouteur d'événements pour la touche "W"
-    window.addEventListener('keydown', function(event) {
-        if (event.key === 'w' || event.key === 'W') {
-            toggleScript();
-        }
-    });
-
-    // Appelez les fonctions pour effectuer les actions après le chargement de la page
-    window.addEventListener('load', function() {
-        automateActions();
-    });
-
 })();
