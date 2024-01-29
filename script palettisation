@@ -1,5 +1,3 @@
-scripts palettisation :
-
 // ==UserScript==
 // @name         Clics Automatique palettisation 2.0
 // @namespace    http://tampermonkey.net/
@@ -143,8 +141,3 @@ scripts palettisation :
     });
 
 })();
-
-    }, 1000);
-
-})();
-
